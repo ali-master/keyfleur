@@ -17,7 +17,7 @@ generateKeyFleur({ mode: "celestial", theme: "sigil" })
 // → "Nebula-847-Galaxy" ✨
 ```
 
-**[📖 Documentation](#quick-start) • [🎮 Try Online](https://keyfleur.dev) • [🐙 GitHub Issues](https://github.com/yourusername/key-fleur/issues)**
+**[📖 Documentation](#quick-start) • [🎮 Try Online](https://keyfleur.usestrict.dev) • [🐙 GitHub Issues](https://github.com/ali-master/key-fleur/issues)**
 
 </div>
 
@@ -509,7 +509,7 @@ We welcome contributions! Here's how to get started:
 ### Development Setup
 
 ```bash
-git clone https://github.com/yourusername/key-fleur.git
+git clone https://github.com/ali-master/key-fleur.git
 cd key-fleur
 npm install
 npm run build

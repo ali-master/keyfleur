@@ -1,0 +1,1115 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, viewport-fit=cover"
+    />
+    <title>Key Fleur - Beautiful Poetic API Keys</title>
+    <meta
+      name="description"
+      content="Generate beautiful, memorable, and poetic API keys and unique identifiers for your applications."
+    />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="KeyFleur" />
+    <meta name="theme-color" content="#06B6D4" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.294.0/lucide.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style type="text/tailwindcss">
+      @theme {
+        --font-family-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+        --font-family-mono:
+          "JetBrains Mono", ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Monaco,
+          Consolas, "Courier New", monospace;
+
+        /* Key Fleur Brand Colors (from logo.svg) */
+        --color-cyan-50: #ecfeff;
+        --color-cyan-100: #cffafe;
+        --color-cyan-200: #a5f3fc;
+        --color-cyan-300: #67e8f9;
+        --color-cyan-400: #22d3ee;
+        --color-cyan-500: #06b6d4;
+        --color-cyan-600: #0891b2;
+        --color-cyan-700: #0e7490;
+        --color-cyan-800: #155e75;
+        --color-cyan-900: #164e63;
+        --color-cyan-950: #083344;
+
+        /* Dark theme optimized colors */
+        --color-slate-50: #f8fafc;
+        --color-slate-100: #f1f5f9;
+        --color-slate-200: #e2e8f0;
+        --color-slate-300: #cbd5e1;
+        --color-slate-400: #94a3b8;
+        --color-slate-500: #64748b;
+        --color-slate-600: #475569;
+        --color-slate-700: #334155;
+        --color-slate-800: #1e293b;
+        --color-slate-900: #0f172a;
+        --color-slate-950: #020617;
+      }
+
+      @layer base {
+        body {
+          font-feature-settings:
+            "rlig" 1,
+            "calt" 1;
+        }
+
+        .text-gradient {
+          background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+
+        .bg-gradient-brand {
+          background: linear-gradient(
+            135deg,
+            rgba(6, 182, 212, 0.1) 0%,
+            rgba(6, 182, 212, 0.05) 100%
+          );
+        }
+
+        .border-gradient {
+          border-image: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%) 1;
+        }
+
+        .glass-effect {
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+        }
+
+        .animation-float {
+          animation: float 6s ease-in-out infinite;
+        }
+
+        .animation-pulse-slow {
+          animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes float {
+          0%,
+          100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-10px);
+          }
+        }
+
+        .code-highlight {
+          background: linear-gradient(
+            90deg,
+            rgba(6, 182, 212, 0.1) 0%,
+            rgba(6, 182, 212, 0.05) 100%
+          );
+          border-left: 3px solid #06b6d4;
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+          width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+          background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+          background: rgba(6, 182, 212, 0.3);
+          border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+          background: rgba(6, 182, 212, 0.5);
+        }
+
+        /* Copy button animation */
+        .copy-success {
+          animation: copySuccess 0.3s ease-in-out;
+        }
+
+        @keyframes copySuccess {
+          0% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.1);
+            background-color: #10b981;
+          }
+          100% {
+            transform: scale(1);
+          }
+        }
+
+        /* Hero key display click animation */
+        .hero-key-copied {
+          animation: heroCopied 0.5s ease-in-out;
+        }
+
+        @keyframes heroCopied {
+          0% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
+          }
+          100% {
+            transform: scale(1);
+          }
+        }
+      }
+    </style>
+  </head>
+
+  <body
+    class="font-sans bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300"
+  >
+    <!-- Navigation -->
+    <nav
+      class="sticky top-0 z-50 border-b border-slate-200 dark:border-slate-800 glass-effect bg-slate-50/80 dark:bg-slate-950/80"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center">
+              <svg width="32" height="32" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <radialGradient id="bg-nav" cx="50%" cy="0%" r="80%">
+                    <stop offset="0%" style="stop-color: rgba(6, 182, 212, 0.25)" />
+                    <stop offset="70%" style="stop-color: rgba(6, 182, 212, 0)" />
+                  </radialGradient>
+                  <linearGradient id="cloudGrad-nav" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color: rgba(6, 182, 212, 0.8)" />
+                    <stop offset="50%" style="stop-color: rgba(6, 182, 212, 0.5)" />
+                    <stop offset="100%" style="stop-color: rgba(6, 182, 212, 0.2)" />
+                  </linearGradient>
+                  <linearGradient id="keyGrad-nav" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color: rgba(6, 182, 212, 0.9)" />
+                    <stop offset="100%" style="stop-color: rgba(6, 182, 212, 0.6)" />
+                  </linearGradient>
+                </defs>
+                <circle cx="100" cy="100" r="95" fill="url(#bg-nav)" />
+                <g>
+                  <ellipse cx="100" cy="85" rx="45" ry="25" fill="url(#cloudGrad-nav)" />
+                  <circle cx="70" cy="75" r="18" fill="url(#cloudGrad-nav)" />
+                  <circle cx="130" cy="75" r="18" fill="url(#cloudGrad-nav)" />
+                  <circle cx="85" cy="60" r="12" fill="url(#cloudGrad-nav)" />
+                  <circle cx="115" cy="60" r="12" fill="url(#cloudGrad-nav)" />
+                  <circle cx="100" cy="55" r="8" fill="url(#cloudGrad-nav)" />
+                </g>
+                <g transform="translate(85, 115)">
+                  <rect x="12" y="0" width="6" height="45" rx="3" fill="url(#keyGrad-nav)" />
+                  <circle
+                    cx="15"
+                    cy="-8"
+                    r="12"
+                    fill="none"
+                    stroke="url(#keyGrad-nav)"
+                    stroke-width="4"
+                  />
+                  <rect x="18" y="35" width="8" height="3" fill="url(#keyGrad-nav)" />
+                  <rect x="18" y="40" width="6" height="3" fill="url(#keyGrad-nav)" />
+                  <rect x="18" y="30" width="10" height="3" fill="url(#keyGrad-nav)" />
+                </g>
+              </svg>
+            </div>
+            <h1 class="text-xl font-bold text-gradient">Key Fleur</h1>
+          </div>
+
+          <div class="flex items-center space-x-4">
+            <button
+              id="themeToggle"
+              class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+              title="Toggle theme"
+            >
+              <i data-lucide="sun" class="w-4 h-4 dark:hidden"></i>
+              <i data-lucide="moon" class="w-4 h-4 hidden dark:block"></i>
+            </button>
+
+            <a
+              href="https://github.com/ali-master/keyfleur"
+              target="_blank"
+              class="flex items-center space-x-2 px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
+            >
+              <i data-lucide="github" class="w-4 h-4"></i>
+              <span>GitHub</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative py-20 overflow-hidden">
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-cyan-50 to-slate-100 dark:from-slate-900 dark:to-slate-950"
+      ></div>
+      <div class="absolute inset-0 opacity-30">
+        <div
+          class="absolute top-20 left-20 w-32 h-32 bg-cyan-400 rounded-full blur-3xl animation-pulse-slow"
+        ></div>
+        <div
+          class="absolute bottom-20 right-20 w-40 h-40 bg-cyan-300 rounded-full blur-3xl animation-pulse-slow"
+          style="animation-delay: 2s"
+        ></div>
+      </div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="animation-float">
+          <div
+            class="w-24 h-24 mx-auto mb-8 rounded-2xl shadow-2xl shadow-cyan-500/25 flex items-center justify-center"
+          >
+            <svg width="96" height="96" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <radialGradient id="bg-hero" cx="50%" cy="0%" r="80%">
+                  <stop offset="0%" style="stop-color: rgba(6, 182, 212, 0.25)" />
+                  <stop offset="70%" style="stop-color: rgba(6, 182, 212, 0)" />
+                </radialGradient>
+                <linearGradient id="cloudGrad-hero" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color: rgba(6, 182, 212, 0.8)" />
+                  <stop offset="50%" style="stop-color: rgba(6, 182, 212, 0.5)" />
+                  <stop offset="100%" style="stop-color: rgba(6, 182, 212, 0.2)" />
+                </linearGradient>
+                <linearGradient id="keyGrad-hero" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color: rgba(6, 182, 212, 0.9)" />
+                  <stop offset="100%" style="stop-color: rgba(6, 182, 212, 0.6)" />
+                </linearGradient>
+                <filter id="shadow-hero">
+                  <feDropShadow dx="2" dy="4" stdDeviation="3" flood-opacity="0.3" />
+                </filter>
+              </defs>
+              <circle cx="100" cy="100" r="95" fill="#000000" stroke="#E2E8F0" stroke-width="2" />
+              <circle
+                cx="100"
+                cy="100"
+                r="95"
+                fill="url(#bg-hero)"
+                stroke="#E2E8F0"
+                stroke-width="2"
+              />
+              <g filter="url(#shadow-hero)">
+                <ellipse cx="100" cy="85" rx="45" ry="25" fill="url(#cloudGrad-hero)" />
+                <circle cx="70" cy="75" r="18" fill="url(#cloudGrad-hero)" />
+                <circle cx="130" cy="75" r="18" fill="url(#cloudGrad-hero)" />
+                <circle cx="85" cy="60" r="12" fill="url(#cloudGrad-hero)" />
+                <circle cx="115" cy="60" r="12" fill="url(#cloudGrad-hero)" />
+                <circle cx="100" cy="55" r="8" fill="url(#cloudGrad-hero)" />
+              </g>
+              <g transform="translate(85, 115)" filter="url(#shadow-hero)">
+                <rect x="12" y="0" width="6" height="45" rx="3" fill="url(#keyGrad-hero)" />
+                <circle
+                  cx="15"
+                  cy="-8"
+                  r="12"
+                  fill="none"
+                  stroke="url(#keyGrad-hero)"
+                  stroke-width="4"
+                />
+                <rect x="18" y="35" width="8" height="3" fill="url(#keyGrad-hero)" />
+                <rect x="18" y="40" width="6" height="3" fill="url(#keyGrad-hero)" />
+                <rect x="18" y="30" width="10" height="3" fill="url(#keyGrad-hero)" />
+              </g>
+              <g fill="#64748B" font-family="monospace" font-size="8" opacity="0.7">
+                <text x="40" y="140" transform="rotate(-15 40 140)">Luna-Void</text>
+                <text x="140" y="45" transform="rotate(20 140 45)">Coral-Wave</text>
+                <text x="160" y="140" transform="rotate(-10 160 140)">Sol-Ray</text>
+              </g>
+              <g fill="#0284C7" opacity="0.6">
+                <polygon
+                  points="45,50 47,54 51,54 48,57 49,61 45,58 41,61 42,57 39,54 43,54"
+                  transform="scale(0.6)"
+                />
+                <polygon
+                  points="155,45 157,49 161,49 158,52 159,56 155,53 151,56 152,52 149,49 153,49"
+                  transform="scale(0.6)"
+                />
+                <polygon
+                  points="35,155 37,159 41,159 38,162 39,166 35,163 31,166 32,162 29,159 33,159"
+                  transform="scale(0.6)"
+                />
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <h1 class="text-5xl md:text-6xl font-bold mb-6">
+          Beautiful <span class="text-gradient">Poetic</span> Keys
+        </h1>
+
+        <p class="text-xl text-slate-600 dark:text-slate-400 mb-8 max-w-3xl mx-auto">
+          Generate memorable, thematic API keys and unique identifiers that are as beautiful as they
+          are functional. Perfect for applications that value both security and aesthetics.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+          <button
+            id="quickGenerate"
+            class="px-8 py-3 bg-gradient-to-r from-cyan-500 to-cyan-600 text-white font-medium rounded-lg shadow-lg shadow-cyan-500/25 hover:shadow-xl hover:shadow-cyan-500/40 transition-all duration-300 transform hover:-translate-y-1"
+          >
+            <i data-lucide="wand" class="w-4 h-4 inline mr-2"></i>
+            Generate Key
+          </button>
+
+          <button
+            class="px-8 py-3 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+            onclick="document.getElementById('playground').scrollIntoView({behavior: 'smooth'})"
+          >
+            Try Playground
+          </button>
+        </div>
+
+        <div
+          id="heroKeyDisplay"
+          class="inline-flex items-center px-6 py-3 bg-slate-100 dark:bg-slate-800 rounded-lg font-mono text-lg font-medium border border-slate-200 dark:border-slate-700 cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-200 group"
+          title="Click to copy"
+        >
+          <span
+            id="heroKeyText"
+            class="group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors"
+            >Luna-Eclipse-Void</span
+          >
+          <svg
+            class="w-4 h-4 ml-2 opacity-0 group-hover:opacity-100 transition-opacity text-cyan-500"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="py-20 bg-white dark:bg-slate-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Powerful Features</h2>
+          <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+            Key Fleur offers multiple generation modes and themes to create the perfect keys for
+            your use case.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            class="p-6 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700"
+          >
+            <div
+              class="w-12 h-12 bg-cyan-100 dark:bg-cyan-950 rounded-lg flex items-center justify-center mb-4"
+            >
+              <i data-lucide="palette" class="w-6 h-6 text-cyan-600"></i>
+            </div>
+            <h3 class="font-semibold mb-2">13 Themes</h3>
+            <p class="text-slate-600 dark:text-slate-400 text-sm">
+              From mystical to oceanic, choose from carefully crafted word collections.
+            </p>
+          </div>
+
+          <div
+            class="p-6 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700"
+          >
+            <div
+              class="w-12 h-12 bg-cyan-100 dark:bg-cyan-950 rounded-lg flex items-center justify-center mb-4"
+            >
+              <i data-lucide="settings" class="w-6 h-6 text-cyan-600"></i>
+            </div>
+            <h3 class="font-semibold mb-2">9 Generation Modes</h3>
+            <p class="text-slate-600 dark:text-slate-400 text-sm">
+              From haiku to sigil patterns, each with unique formatting rules.
+            </p>
+          </div>
+
+          <div
+            class="p-6 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700"
+          >
+            <div
+              class="w-12 h-12 bg-cyan-100 dark:bg-cyan-950 rounded-lg flex items-center justify-center mb-4"
+            >
+              <i data-lucide="shield-check" class="w-6 h-6 text-cyan-600"></i>
+            </div>
+            <h3 class="font-semibold mb-2">Validation Built-in</h3>
+            <p class="text-slate-600 dark:text-slate-400 text-sm">
+              Validate existing keys and identify their generation pattern.
+            </p>
+          </div>
+
+          <div
+            class="p-6 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700"
+          >
+            <div
+              class="w-12 h-12 bg-cyan-100 dark:bg-cyan-950 rounded-lg flex items-center justify-center mb-4"
+            >
+              <i data-lucide="zap" class="w-6 h-6 text-cyan-600"></i>
+            </div>
+            <h3 class="font-semibold mb-2">Zero Dependencies</h3>
+            <p class="text-slate-600 dark:text-slate-400 text-sm">
+              Lightweight and fast with no external dependencies.
+            </p>
+          </div>
+
+          <div
+            class="p-6 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700"
+          >
+            <div
+              class="w-12 h-12 bg-cyan-100 dark:bg-cyan-950 rounded-lg flex items-center justify-center mb-4"
+            >
+              <i data-lucide="code" class="w-6 h-6 text-cyan-600"></i>
+            </div>
+            <h3 class="font-semibold mb-2">TypeScript Native</h3>
+            <p class="text-slate-600 dark:text-slate-400 text-sm">
+              Full TypeScript support with comprehensive type definitions.
+            </p>
+          </div>
+
+          <div
+            class="p-6 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700"
+          >
+            <div
+              class="w-12 h-12 bg-cyan-100 dark:bg-cyan-950 rounded-lg flex items-center justify-center mb-4"
+            >
+              <i data-lucide="layers" class="w-6 h-6 text-cyan-600"></i>
+            </div>
+            <h3 class="font-semibold mb-2">Batch Generation</h3>
+            <p class="text-slate-600 dark:text-slate-400 text-sm">
+              Generate multiple keys at once, up to 100 per batch.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Playground -->
+    <section id="playground" class="py-20 bg-slate-50 dark:bg-slate-950">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Interactive Playground</h2>
+          <p class="text-slate-600 dark:text-slate-400">
+            Experiment with different modes and themes to create your perfect keys.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-8">
+          <!-- Controls -->
+          <div class="space-y-6">
+            <div
+              class="p-6 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm"
+            >
+              <h3 class="font-semibold mb-4 flex items-center">
+                <i data-lucide="sliders" class="w-4 h-4 mr-2 text-cyan-500"></i>
+                Generation Settings
+              </h3>
+
+              <div class="space-y-4">
+                <div>
+                  <label class="block text-sm font-medium mb-2">Mode</label>
+                  <select
+                    id="modeSelect"
+                    class="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-800 focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+                  >
+                    <option value="haiku">Haiku - Classic three-word pattern</option>
+                    <option value="lace">Lace - Intricate lowercase pattern</option>
+                    <option value="mirrora">Mirrora - Minimal two-part keys</option>
+                    <option value="rune">Rune - Time-stamped mystical keys</option>
+                    <option value="sonnet">Sonnet - Poetic compound words</option>
+                    <option value="sigil">Sigil - Numbered magical symbols</option>
+                    <option value="seed">Seed - Short hexadecimal codes</option>
+                    <option value="mantra">Mantra - Rhythmic repetitive patterns</option>
+                    <option value="quartz">Quartz - Crystal-inspired versioned keys</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium mb-2">Theme</label>
+                  <select
+                    id="themeSelect"
+                    class="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-800 focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+                  >
+                    <option value="haiku">Haiku - Abstract poetic words</option>
+                    <option value="nocturnal">Nocturnal - Night and darkness</option>
+                    <option value="sunny">Sunny - Bright and warm</option>
+                    <option value="floreal">Floreal - Flowers and nature</option>
+                    <option value="oceanic">Oceanic - Seas and waters</option>
+                    <option value="crystalline">Crystalline - Gems and crystals</option>
+                    <option value="mythic">Mythic - Legends and magic</option>
+                    <option value="forest">Forest - Woods and trees</option>
+                    <option value="desert">Desert - Arid landscapes</option>
+                    <option value="celestial">Celestial - Stars and cosmos</option>
+                    <option value="library">Library - Books and knowledge</option>
+                    <option value="decay">Decay - Gothic and dark</option>
+                    <option value="steampunk">Steampunk - Industrial vintage</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium mb-2">Count</label>
+                  <input
+                    type="range"
+                    id="countSlider"
+                    min="1"
+                    max="10"
+                    value="1"
+                    class="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer"
+                  />
+                  <div class="flex justify-between text-xs text-slate-500 mt-1">
+                    <span>1</span>
+                    <span id="countValue">1</span>
+                    <span>10</span>
+                  </div>
+                </div>
+
+                <button
+                  id="generateBtn"
+                  class="w-full px-4 py-3 bg-gradient-to-r from-cyan-500 to-cyan-600 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
+                >
+                  <i data-lucide="sparkles" class="w-4 h-4 inline mr-2"></i>
+                  Generate Keys
+                </button>
+              </div>
+            </div>
+
+            <!-- Key Validation -->
+            <div
+              class="p-6 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm"
+            >
+              <h3 class="font-semibold mb-4 flex items-center">
+                <i data-lucide="shield-check" class="w-4 h-4 mr-2 text-cyan-500"></i>
+                Key Validation
+              </h3>
+
+              <div class="space-y-4">
+                <div>
+                  <label class="block text-sm font-medium mb-2">Test a Key</label>
+                  <input
+                    type="text"
+                    id="validateInput"
+                    placeholder="Enter a key to validate..."
+                    class="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-800 focus:ring-2 focus:ring-cyan-500 focus:border-transparent font-mono"
+                  />
+                </div>
+
+                <div id="validationResult" class="hidden p-3 rounded-lg">
+                  <div
+                    id="validationStatus"
+                    class="flex items-center text-sm font-medium mb-2"
+                  ></div>
+                  <div id="validationDetails" class="text-xs opacity-75"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Output -->
+          <div class="space-y-6">
+            <div
+              class="p-6 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm"
+            >
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="font-semibold flex items-center">
+                  <i data-lucide="terminal" class="w-4 h-4 mr-2 text-cyan-500"></i>
+                  Generated Keys
+                </h3>
+                <button
+                  id="copyAllBtn"
+                  class="px-3 py-1 text-xs bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg transition-colors flex items-center"
+                  title="Copy all keys"
+                >
+                  <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  Copy
+                </button>
+              </div>
+
+              <div id="keyOutput" class="space-y-2 min-h-[200px] max-h-[400px] overflow-y-auto">
+                <div class="text-center text-slate-500 dark:text-slate-400 py-8">
+                  <i data-lucide="key" class="w-8 h-8 mx-auto mb-2 opacity-50"></i>
+                  <p>Generated keys will appear here</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Code Example -->
+            <div
+              class="p-6 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm"
+            >
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="font-semibold flex items-center">
+                  <i data-lucide="code" class="w-4 h-4 mr-2 text-cyan-500"></i>
+                  Code Example
+                </h3>
+                <button
+                  id="copyCodeBtn"
+                  class="px-3 py-1 text-xs bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg transition-colors flex items-center"
+                  title="Copy code"
+                >
+                  <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  Copy
+                </button>
+              </div>
+
+              <pre
+                id="codeExample"
+                class="text-xs bg-slate-50 dark:bg-slate-800 p-4 rounded-lg overflow-x-auto font-mono"
+              ><code>import { generateKeyFleur } from '@usex/key-fleur';
+
+const key = generateKeyFleur({
+  mode: 'haiku',
+  theme: 'haiku',
+  count: 1
+});
+
+console.log(key); // "Luna-Eclipse-Void"</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Installation & Usage -->
+    <section class="py-20 bg-white dark:bg-slate-900">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Getting Started</h2>
+          <p class="text-slate-600 dark:text-slate-400">
+            Install and start generating beautiful keys in minutes.
+          </p>
+        </div>
+
+        <div class="space-y-8">
+          <div class="p-6 bg-slate-50 dark:bg-slate-800 rounded-xl">
+            <h3 class="font-semibold mb-4 flex items-center">
+              <i data-lucide="download" class="w-4 h-4 mr-2 text-cyan-500"></i>
+              Installation
+            </h3>
+            <pre
+              class="bg-slate-900 dark:bg-slate-950 text-slate-100 p-4 rounded-lg overflow-x-auto"
+            ><code>npm install @usex/key-fleur</code></pre>
+          </div>
+
+          <div class="p-6 bg-slate-50 dark:bg-slate-800 rounded-xl">
+            <h3 class="font-semibold mb-4 flex items-center">
+              <i data-lucide="play" class="w-4 h-4 mr-2 text-cyan-500"></i>
+              Basic Usage
+            </h3>
+            <pre
+              class="bg-slate-900 dark:bg-slate-950 text-slate-100 p-4 rounded-lg overflow-x-auto text-sm"
+            ><code>import { generateKeyFleur, isValidKeyFleur } from '@usex/key-fleur';
+
+// Generate a single key
+const key = generateKeyFleur();
+console.log(key); // "Ethae-Soliv-Nyrae"
+
+// Generate with specific mode and theme
+const celestialKey = generateKeyFleur({
+  mode: 'sigil',
+  theme: 'celestial'
+});
+console.log(celestialKey); // "Star-472-Cosmos"
+
+// Generate multiple keys
+const keys = generateKeyFleur({
+  count: 5,
+  theme: 'oceanic'
+});
+console.log(keys); // ["Wave-Tide-Ocean", ...]
+
+// Validate a key
+const validation = isValidKeyFleur("Luna-Eclipse-Void");
+console.log(validation.valid); // true
+console.log(validation.mode); // "haiku"</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      class="py-12 bg-slate-100 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row items-center justify-between">
+          <div class="flex items-center space-x-3 mb-4 md:mb-0">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center">
+              <svg width="32" height="32" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <radialGradient id="bg-footer" cx="50%" cy="0%" r="80%">
+                    <stop offset="0%" style="stop-color: rgba(6, 182, 212, 0.25)" />
+                    <stop offset="70%" style="stop-color: rgba(6, 182, 212, 0)" />
+                  </radialGradient>
+                  <linearGradient id="cloudGrad-footer" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color: rgba(6, 182, 212, 0.8)" />
+                    <stop offset="50%" style="stop-color: rgba(6, 182, 212, 0.5)" />
+                    <stop offset="100%" style="stop-color: rgba(6, 182, 212, 0.2)" />
+                  </linearGradient>
+                  <linearGradient id="keyGrad-footer" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color: rgba(6, 182, 212, 0.9)" />
+                    <stop offset="100%" style="stop-color: rgba(6, 182, 212, 0.6)" />
+                  </linearGradient>
+                </defs>
+                <circle cx="100" cy="100" r="95" fill="url(#bg-footer)" />
+                <g>
+                  <ellipse cx="100" cy="85" rx="45" ry="25" fill="url(#cloudGrad-footer)" />
+                  <circle cx="70" cy="75" r="18" fill="url(#cloudGrad-footer)" />
+                  <circle cx="130" cy="75" r="18" fill="url(#cloudGrad-footer)" />
+                  <circle cx="85" cy="60" r="12" fill="url(#cloudGrad-footer)" />
+                  <circle cx="115" cy="60" r="12" fill="url(#cloudGrad-footer)" />
+                  <circle cx="100" cy="55" r="8" fill="url(#cloudGrad-footer)" />
+                </g>
+                <g transform="translate(85, 115)">
+                  <rect x="12" y="0" width="6" height="45" rx="3" fill="url(#keyGrad-footer)" />
+                  <circle
+                    cx="15"
+                    cy="-8"
+                    r="12"
+                    fill="none"
+                    stroke="url(#keyGrad-footer)"
+                    stroke-width="4"
+                  />
+                  <rect x="18" y="35" width="8" height="3" fill="url(#keyGrad-footer)" />
+                  <rect x="18" y="40" width="6" height="3" fill="url(#keyGrad-footer)" />
+                  <rect x="18" y="30" width="10" height="3" fill="url(#keyGrad-footer)" />
+                </g>
+              </svg>
+            </div>
+            <span class="text-lg font-bold text-gradient">Key Fleur</span>
+          </div>
+
+          <div class="flex items-center space-x-6 text-sm text-slate-600 dark:text-slate-400">
+            <a
+              href="https://github.com/ali-master/keyfleur"
+              class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
+            >
+              GitHub
+            </a>
+            <a
+              href="https://www.npmjs.com/package/@usex/key-fleur"
+              class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
+            >
+              NPM
+            </a>
+            <span>Made with ❤️ by Ali Torki</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/@usex/key-fleur@0.1.0/dist/index.cjs"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <script>
+      // Initialize Lucide icons
+      lucide.createIcons();
+
+      // Theme management
+      const themeToggle = document.getElementById("themeToggle");
+      const html = document.documentElement;
+
+      // Check for saved theme preference or default to dark
+      const savedTheme = localStorage.getItem("theme") || "dark";
+      html.classList.toggle("dark", savedTheme === "dark");
+
+      themeToggle.addEventListener("click", () => {
+        const isDark = html.classList.toggle("dark");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+        lucide.createIcons(); // Refresh icons after theme change
+      });
+
+      // Key generation functionality
+      const modeSelect = document.getElementById("modeSelect");
+      const themeSelect = document.getElementById("themeSelect");
+      const countSlider = document.getElementById("countSlider");
+      const countValue = document.getElementById("countValue");
+      const generateBtn = document.getElementById("generateBtn");
+      const keyOutput = document.getElementById("keyOutput");
+      const codeExample = document.getElementById("codeExample");
+      const quickGenerate = document.getElementById("quickGenerate");
+      const heroKeyDisplay = document.getElementById("heroKeyDisplay");
+
+      // Update count display
+      countSlider.addEventListener("input", (e) => {
+        countValue.textContent = e.target.value;
+      });
+
+      // Generate keys function
+      function generateKeys() {
+        const mode = modeSelect.value;
+        const theme = themeSelect.value;
+        const count = parseInt(countSlider.value);
+
+        try {
+          const result = generateKeyFleur({ mode, theme, count });
+          const keys = Array.isArray(result) ? result : [result];
+
+          // Update output
+          keyOutput.innerHTML = keys
+            .map(
+              (key, index) => `
+            <div class="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
+              <code class="font-mono text-sm">${key}</code>
+              <button onclick="copyToClipboard('${key}', this)" class="p-1 text-slate-400 hover:text-cyan-500 transition-colors" title="Copy key">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+              </button>
+            </div>
+          `,
+            )
+            .join("");
+
+          // Update code example
+          const codeTemplate = `import { generateKeyFleur } from '@usex/key-fleur';
+
+const ${count > 1 ? "keys" : "key"} = generateKeyFleur({
+  mode: '${mode}',
+  theme: '${theme}'${
+    count > 1
+      ? `,
+  count: ${count}`
+      : ""
+  }
+});
+
+console.log(${count > 1 ? "keys" : "key"}); // ${count > 1 ? JSON.stringify(keys) : `"${keys[0]}"`}`;
+
+          codeExample.querySelector("code").textContent = codeTemplate;
+
+          // Refresh icons for new copy buttons
+          lucide.createIcons();
+        } catch (error) {
+          keyOutput.innerHTML = `
+            <div class="p-4 bg-red-50 dark:bg-red-950 border border-red-200 dark:border-red-800 rounded-lg text-red-700 dark:text-red-300">
+              <i data-lucide="alert-circle" class="w-4 h-4 inline mr-2"></i>
+              Error: ${error.message}
+            </div>
+          `;
+          lucide.createIcons();
+        }
+      }
+
+      // Hero quick generate
+      function quickGenerateKey() {
+        try {
+          const key = generateKeyFleur();
+          document.getElementById("heroKeyText").textContent = key;
+          heroKeyDisplay.classList.add("animate-pulse");
+          setTimeout(() => heroKeyDisplay.classList.remove("animate-pulse"), 1000);
+        } catch (error) {
+          document.getElementById("heroKeyText").textContent = "Error generating key";
+        }
+      }
+
+      // Event listeners
+      generateBtn.addEventListener("click", generateKeys);
+      quickGenerate.addEventListener("click", quickGenerateKey);
+
+      // Copy functionality with visual feedback
+      function copyToClipboard(text, button = null) {
+        if (!text) {
+          console.error("No text provided to copy");
+          return;
+        }
+
+        // Modern clipboard API
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard
+            .writeText(text)
+            .then(() => {
+              handleCopySuccess(button);
+            })
+            .catch((err) => {
+              console.error("Clipboard API failed:", err);
+              fallbackCopyTextToClipboard(text, button);
+            });
+        } else {
+          // Fallback for older browsers or non-secure contexts
+          fallbackCopyTextToClipboard(text, button);
+        }
+      }
+
+      function fallbackCopyTextToClipboard(text, button = null) {
+        const textArea = document.createElement("textarea");
+        textArea.value = text;
+
+        // Avoid scrolling to bottom
+        textArea.style.top = "0";
+        textArea.style.left = "0";
+        textArea.style.position = "fixed";
+        textArea.style.opacity = "0";
+
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+
+        try {
+          const successful = document.execCommand("copy");
+          if (successful) {
+            handleCopySuccess(button);
+          } else {
+            console.error("Fallback copy failed");
+          }
+        } catch (err) {
+          console.error("Fallback copy error:", err);
+        }
+
+        document.body.removeChild(textArea);
+      }
+
+      function handleCopySuccess(button = null) {
+        // Add visual feedback to the specific button
+        if (button) {
+          button.classList.add("copy-success");
+          const svg = button.querySelector("svg");
+          if (svg) {
+            // Replace with checkmark
+            svg.innerHTML =
+              '<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>';
+
+            setTimeout(() => {
+              button.classList.remove("copy-success");
+              // Restore copy icon
+              svg.innerHTML =
+                '<rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>';
+            }, 1500);
+          }
+        }
+
+        // Show temporary global feedback
+        const event = new CustomEvent("copied");
+        document.dispatchEvent(event);
+      }
+
+      // Hero key display copy functionality
+      document.getElementById("heroKeyDisplay").addEventListener("click", function () {
+        const keyText = document.getElementById("heroKeyText").textContent;
+        this.classList.add("hero-key-copied");
+        setTimeout(() => this.classList.remove("hero-key-copied"), 500);
+        copyToClipboard(keyText);
+      });
+
+      // Copy all keys
+      document.getElementById("copyAllBtn").addEventListener("click", function () {
+        const keys = Array.from(keyOutput.querySelectorAll("code")).map((el) => el.textContent);
+        if (keys.length > 0) {
+          copyToClipboard(keys.join("\n"), this);
+        }
+      });
+
+      // Copy code example
+      document.getElementById("copyCodeBtn").addEventListener("click", function () {
+        const code = codeExample.querySelector("code").textContent;
+        copyToClipboard(code, this);
+      });
+
+      // Key validation
+      const validateInput = document.getElementById("validateInput");
+      const validationResult = document.getElementById("validationResult");
+      const validationStatus = document.getElementById("validationStatus");
+      const validationDetails = document.getElementById("validationDetails");
+
+      validateInput.addEventListener("input", (e) => {
+        const key = e.target.value.trim();
+
+        if (!key) {
+          validationResult.classList.add("hidden");
+          return;
+        }
+
+        try {
+          const result = isValidKeyFleur(key);
+          validationResult.classList.remove("hidden");
+
+          if (result.valid) {
+            validationResult.className =
+              "p-3 rounded-lg bg-green-50 dark:bg-green-950 border border-green-200 dark:border-green-800";
+            validationStatus.innerHTML = `
+              <i data-lucide="check-circle" class="w-4 h-4 mr-2 text-green-600 dark:text-green-400"></i>
+              <span class="text-green-700 dark:text-green-300">Valid Key</span>
+            `;
+            validationDetails.innerHTML = `
+              <span class="text-green-600 dark:text-green-400">Mode: ${result.mode}</span>
+              ${result.parts ? `<br><span class="text-green-600 dark:text-green-400">Parts: ${result.parts.join(", ")}</span>` : ""}
+            `;
+          } else {
+            validationResult.className =
+              "p-3 rounded-lg bg-red-50 dark:bg-red-950 border border-red-200 dark:border-red-800";
+            validationStatus.innerHTML = `
+              <i data-lucide="x-circle" class="w-4 h-4 mr-2 text-red-600 dark:text-red-400"></i>
+              <span class="text-red-700 dark:text-red-300">Invalid Key</span>
+            `;
+            validationDetails.innerHTML = `
+              <span class="text-red-600 dark:text-red-400">${result.reason}</span>
+            `;
+          }
+
+          lucide.createIcons();
+        } catch (error) {
+          validationResult.classList.remove("hidden");
+          validationResult.className =
+            "p-3 rounded-lg bg-red-50 dark:bg-red-950 border border-red-200 dark:border-red-800";
+          validationStatus.innerHTML = `
+            <i data-lucide="alert-circle" class="w-4 h-4 mr-2 text-red-600 dark:text-red-400"></i>
+            <span class="text-red-700 dark:text-red-300">Validation Error</span>
+          `;
+          validationDetails.innerHTML = `
+            <span class="text-red-600 dark:text-red-400">${error.message}</span>
+          `;
+          lucide.createIcons();
+        }
+      });
+
+      // Global copy feedback
+      document.addEventListener("copied", () => {
+        // Create and show temporary notification
+        const notification = document.createElement("div");
+        notification.className =
+          "fixed bottom-4 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg z-50 transition-all duration-300 flex items-center";
+        notification.innerHTML =
+          '<svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Copied to clipboard!';
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+          notification.style.opacity = "0";
+          setTimeout(() => {
+            if (notification.parentNode) {
+              document.body.removeChild(notification);
+            }
+          }, 300);
+        }, 2000);
+      });
+
+      // Initialize with default generation
+      generateKeys();
+      quickGenerateKey();
+    </script>
+  </body>
+</html>
