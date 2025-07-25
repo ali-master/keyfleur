@@ -6,11 +6,11 @@
 
 *Poetic API Key Generation for Modern Developers*
 
-[![npm version](https://img.shields.io/npm/v/key-fleur?style=flat-square&color=007acc&labelColor=000000)](https://npmjs.com/package/key-fleur)
+[![npm version](https://img.shields.io/npm/v/@usex/key-fleur?style=flat-square&color=007acc&labelColor=000000)](https://npmjs.com/package/key-fleur)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-007acc?style=flat-square&labelColor=000000)](https://www.typescriptlang.org/)
 [![Zero Dependencies](https://img.shields.io/badge/dependencies-0-success?style=flat-square&labelColor=000000)](package.json)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square&labelColor=000000)](LICENSE)
-[![Bundle Size](https://img.shields.io/bundlephobia/minzip/key-fleur?style=flat-square&color=success&labelColor=000000)](https://bundlephobia.com/package/key-fleur)
+[![Bundle Size](https://img.shields.io/bundlephobia/minzip/@usex/key-fleur?style=flat-square&color=success&labelColor=000000)](https://bundlephobia.com/package/key-fleur)
 
 ```typescript
 generateKeyFleur({ mode: "celestial", theme: "sigil" })
