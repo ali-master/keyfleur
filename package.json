@@ -1,0 +1,71 @@
+{
+  "name": "@usex/key-fleur",
+  "description": "Generate beautiful, memorable, and poetic API keys and unique identifiers for your applications.",
+  "version": "0.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "Ali Torki",
+    "url": "https://github.com/ali-master",
+    "email": "ali_4286@live.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ali-master/keyfleur.git"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "api-key",
+    "key-generator", 
+    "unique-identifier",
+    "uuid",
+    "id-generator",
+    "poetic",
+    "memorable",
+    "beautiful",
+    "typescript",
+    "zero-dependencies",
+    "authentication",
+    "security",
+    "random",
+    "generator",
+    "thematic",
+    "collections"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "prepack": "unbuild",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write \"**/*.ts\"",
+    "prepare": "bun run build",
+    "prepublish:next": "bun run build",
+    "publish:next": "bun publish --access public --tag next",
+    "prepublish:npm": "bun run build",
+    "publish:npm": "bun publish --access public",
+    "prerelease": "bun run build",
+    "release": "release-it",
+    "preinstall": "bunx is-ci || bunx only-allow bun"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@release-it/conventional-changelog": "^10.0.1",
+    "typescript": "^5.8.3",
+    "unbuild": "^3.6.0",
+    "prettier": "^3.6.2",
+    "release-it": "^19.0.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "packageManager": "bun@1.2.19"
+}
