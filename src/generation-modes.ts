@@ -8,7 +8,7 @@ const RUNES: string[] = ["now+1d", "now-2h", "dawn", "midnight", "solstice", "in
 /**
  * Generates a haiku-style key based on traditional 5-7-5 syllable pattern.
  * Attempts to find words from the theme that match the syllable requirements for each line.
- * 
+ *
  * @param theme - Theme to use for word selection
  * @returns A three-part key joined by dashes, or "incomplete-haiku" if generation fails
  * @example
@@ -64,7 +64,7 @@ function haiku(theme: ThemeKey): string {
 /**
  * Generates a lace pattern key with palindromic elements.
  * Creates a pattern where the middle syllable is mirrored and the word is reversed.
- * 
+ *
  * @param theme - Theme to use for word selection
  * @returns A lace-pattern key with format: word+syllable-reversedSyllable+reversedWord
  * @example
@@ -82,7 +82,7 @@ function lace(theme: ThemeKey): string {
 /**
  * Generates a mirrored syllable key.
  * Creates a simple mirror pattern using a generated syllable.
- * 
+ *
  * @param _ - Theme parameter (unused in this mode)
  * @returns A mirrored syllable pattern
  * @example
@@ -98,7 +98,7 @@ function mirrora(_: ThemeKey): string {
 /**
  * Generates a rune key combining haiku with temporal elements.
  * Uses haiku generation as base and appends a time-based rune value.
- * 
+ *
  * @param theme - Theme to use for word selection
  * @returns A rune key with format: haikuResult_runeValue
  * @example
@@ -115,7 +115,7 @@ function runeKey(theme: ThemeKey): string {
 /**
  * Generates a sonnet-style key with embellished words.
  * Takes two words and adds syllable suffixes to create a poetic combination.
- * 
+ *
  * @param theme - Theme to use for word selection
  * @returns A sonnet key with format: word1+syllable-word2+syllable
  * @example
@@ -136,7 +136,7 @@ function sonnet(theme: ThemeKey): string {
 /**
  * Generates a sigil key with word-number-word pattern.
  * Combines two themed words with a random 3-digit number between them.
- * 
+ *
  * @param theme - Theme to use for word selection
  * @returns A sigil key with format: Word-###-Word
  * @example
@@ -155,7 +155,7 @@ function sigil(theme: ThemeKey): string {
 /**
  * Generates a seed key with word prefix and hexadecimal suffix.
  * Takes first 4 characters of a themed word and appends a hex value.
- * 
+ *
  * @param theme - Theme to use for word selection
  * @returns A seed key with format: WordPrefix-hexValue
  * @example
@@ -175,7 +175,7 @@ function seed(theme: ThemeKey): string {
 /**
  * Generates a mantra key with repetitive pattern.
  * Repeats a word twice, then adds a different word at the end.
- * 
+ *
  * @param theme - Theme to use for word selection
  * @returns A mantra key with format: Word-Word-DifferentWord
  * @example
@@ -194,7 +194,7 @@ function mantra(theme: ThemeKey): string {
 /**
  * Generates a quartz key with complex mirroring and numbers.
  * Creates a pattern with word, number, dot, number, reversed word fragment.
- * 
+ *
  * @param theme - Theme to use for word selection
  * @returns A quartz key with format: Word##.##ReversedFragment
  * @example
@@ -215,7 +215,7 @@ function quartz(theme: ThemeKey): string {
 /**
  * Dictionary mapping mode names to their corresponding generation functions.
  * Each function takes a ThemeKey and returns a generated key string.
- * 
+ *
  * Available modes:
  * - haiku: 5-7-5 syllable pattern
  * - lace: Palindromic pattern with word reversals

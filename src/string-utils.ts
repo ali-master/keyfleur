@@ -7,7 +7,7 @@ const VOWELS: string = "aeiouy";
 /**
  * Generates a random syllable using soft consonants and vowels.
  * Creates aesthetically pleasing two-character combinations for use in key generation.
- * 
+ *
  * @returns A two-character syllable consisting of a consonant followed by a vowel
  * @example
  * ```typescript
@@ -21,7 +21,7 @@ export function syllable(): string {
 /**
  * Returns a random character from the provided string.
  * Utility function used by other generators for random character selection.
- * 
+ *
  * @param chars - String containing characters to choose from
  * @returns A single random character from the input string
  * @example
@@ -36,7 +36,7 @@ export function getRandomChar(chars: string): string {
 /**
  * Returns a random integer between min (inclusive) and max (inclusive).
  * Uses Math.random() to generate cryptographically insecure but adequate randomness for key generation.
- * 
+ *
  * @param min - Minimum value (inclusive)
  * @param max - Maximum value (inclusive)
  * @returns Random integer in the specified range
@@ -55,7 +55,7 @@ export function getRandomInt(min: number, max: number): number {
 /**
  * Returns a random element from an array.
  * Generic utility function that works with arrays of any type.
- * 
+ *
  * @template T - Type of array elements
  * @param array - Array to select from
  * @returns Random element from the array
@@ -72,12 +72,12 @@ export function getRandomElement<T>(array: T[]): T {
 /**
  * Estimates the number of syllables in a word using vowel counting heuristics.
  * This is an approximation used for haiku generation - not linguistically perfect but adequate for our needs.
- * 
+ *
  * Rules applied:
  * - Count vowel groups (consecutive vowels count as one)
  * - Subtract 1 if word ends with 'e' and has more than 1 syllable
  * - Minimum of 1 syllable per word
- * 
+ *
  * @param word - Word to analyze
  * @returns Estimated syllable count (minimum 1)
  * @example
