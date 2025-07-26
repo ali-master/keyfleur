@@ -82,16 +82,16 @@ Zero dependencies, fully typed, tested, and ready for production use.
 
 ```bash
 # npm
-npm install key-fleur
+npm install @usex/key-fleur
 
 # yarn
-yarn add key-fleur
+yarn add @usex/key-fleur
 
 # pnpm
-pnpm add key-fleur
+pnpm add @usex/key-fleur
 
 # bun
-bun add key-fleur
+bun add @usex/key-fleur
 ```
 
 </details>
@@ -99,7 +99,7 @@ bun add key-fleur
 ### Basic Usage
 
 ```typescript
-import { generateKeyFleur } from 'key-fleur';
+import { generateKeyFleur } from '@usex/key-fleur';
 
 // One-liner for a beautiful key
 const key = generateKeyFleur();
@@ -127,7 +127,7 @@ const sessionKeys = generateKeyFleur({
 ### Validation
 
 ```typescript
-import { isValidKeyFleur } from 'key-fleur';
+import { isValidKeyFleur } from '@usex/key-fleur';
 
 const result = isValidKeyFleur("Crystal-459-Gem");
 // → { valid: true, mode: "sigil", parts: ["Crystal", "459", "Gem"] }
@@ -361,7 +361,7 @@ isValidKeyFleur("invalid-key");
 ### Legacy API
 
 ```typescript
-import { poeticKey } from 'key-fleur';
+import { poeticKey } from '@usex/key-fleur';
 
 // Original simple interface (still supported)
 poeticKey(mode?: ModeKey, theme?: ThemeKey): string
@@ -414,7 +414,7 @@ Crystal-459-Amethyst
 ### Batch Generation
 
 ```typescript
-import { generateKeyFleur, type ThemeKey, type ModeKey } from 'key-fleur';
+import { generateKeyFleur, type ThemeKey, type ModeKey } from '@usex/key-fleur';
 
 // Generate API keys for different environments
 const keys = {
@@ -434,7 +434,7 @@ const sessionTokens = generateKeyFleur({
 ### Custom Validation
 
 ```typescript
-import { isValidKeyFleur } from 'key-fleur';
+import { isValidKeyFleur } from '@usex/key-fleur';
 
 function validateApiKey(key: string, expectedFormat: 'sigil' | 'seed') {
   const result = isValidKeyFleur(key, expectedFormat);
@@ -458,7 +458,7 @@ try {
 ### Extending KeyFleur
 
 ```typescript
-import { THEMES, MODES, type ThemeKey } from 'key-fleur';
+import { THEMES, MODES, type ThemeKey } from '@usex/key-fleur';
 
 // Add custom themes
 const customThemes = {
