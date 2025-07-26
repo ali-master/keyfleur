@@ -1,7 +1,7 @@
 {
   "name": "@usex/key-fleur",
   "description": "Generate beautiful, memorable, and poetic API keys and unique identifiers for your applications.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "license": "MIT",
   "author": {
     "name": "Ali Torki",

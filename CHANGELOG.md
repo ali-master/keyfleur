@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.2.0](https://github.com/ali-master/keyfleur/compare/0.1.0...0.2.0) (2025-07-26)
+
+### Features
+
+* add Key Fleur landing page ([46c096e](https://github.com/ali-master/keyfleur/commit/46c096ef20f0ff2a267e8e7d1c3321d266bbe3a1))
+
+### Bug Fixes
+
+* update npm package name in README badges ([90fbc1e](https://github.com/ali-master/keyfleur/commit/90fbc1e1ce8ac112d7ec37d8fe4ee97ea751eb09))
+* update package name in installation instructions and imports ([1dcf5fa](https://github.com/ali-master/keyfleur/commit/1dcf5faea310e44584b6db9ab258d477f65d9228))
+
 ## 0.1.0 (2025-07-25)
 
 ### Features
